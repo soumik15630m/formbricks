@@ -500,7 +500,7 @@ const ensureHobbySubscription = async (
 
   // subscriptionCount in the key: stable across concurrent calls (dedup), but bumps after a
   // cancellation so re-creation isn't blocked by the old key.
-  await stripeClient.subscriptions.create(
+  await stripeClient.subscriptions.create.confirm(
     {
       customer: customerId,
       items: hobbyItems,
